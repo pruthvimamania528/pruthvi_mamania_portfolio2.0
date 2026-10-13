@@ -1,0 +1,1127 @@
+<!doctype html>
+<html class="dark scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Pruthvi Anil Mamania | Data Science &amp; Neural Systems Portfolio</title>
+  <meta name="description" content="Portfolio of Pruthvi Anil Mamania - Data Science undergraduate, AI engineer, and Global Hyperloop competition champion." />
+  <meta property="og:title" content="Pruthvi Anil Mamania | Data Science &amp; Neural Systems Portfolio" />
+  <meta property="og:description" content="Portfolio of Pruthvi Anil Mamania - Data Science undergraduate, AI engineer, and Global Hyperloop competition champion." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google Fonts: Space Grotesk, JetBrains Mono, Inter & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN Engine -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#4cd7f6",
+            "primary-container": "#06b6d4",
+            "primary-fixed-dim": "#4cd7f6",
+            "secondary": "#4edea3",
+            "tertiary": "#ddb7ff",
+            "tertiary-container": "#c78dff",
+            "surface": "#0f131c",
+            "surface-dim": "#0f131c",
+            "surface-container-lowest": "#0a0e16",
+            "surface-container-low": "#181c24",
+            "surface-container": "#1c2028",
+            "surface-container-high": "#262a33",
+            "surface-container-highest": "#31353e",
+            "on-surface": "#dfe2ee",
+            "on-surface-variant": "#bcc9cd",
+            "outline": "#869397",
+            "outline-variant": "#3d494c",
+            "error": "#ffb4ab"
+          },
+          fontFamily: {
+            "code-block": ["JetBrains Mono", "monospace"],
+            "headline": ["Space Grotesk", "sans-serif"],
+            "body": ["Inter", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Custom Production Stylesheet -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body class="bg-[#0f131c] text-[#dfe2ee] antialiased selection:bg-[#06b6d4] selection:text-[#0a0e16] relative min-h-screen overflow-x-hidden font-body">
+
+  <!-- Interactive Cursor Spotlight Glow -->
+  <div class="hidden md:block" id="cursor-glow"></div>
+
+  <!-- Scroll Progress Bar -->
+  <div class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-primary via-secondary to-primary-container z-[60] w-0 transition-all duration-75" id="scroll-progress"></div>
+
+  <!-- ==================== TOP NAVIGATION BAR ==================== -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-[#0f131c]/90 backdrop-blur-md border-b border-outline-variant shadow-[0_4px_0_0_#06b6d4]">
+    <div class="flex justify-between items-center w-full px-6 md:px-12 max-w-7xl mx-auto h-16">
+      <!-- Brand Logo Anchor -->
+      <a class="flex items-center gap-3 group" href="#hero">
+        <span class="font-code-block text-sm font-bold text-primary tracking-tight group-hover:text-secondary transition-colors">
+          pruthvi.ds()
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-surface-container-high border border-outline-variant text-[10px] font-code-block text-secondary">
+          <span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+          ONLINE
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-6">
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-code-block text-xs tracking-wider" href="#honors">
+          Honors
+        </a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-code-block text-xs tracking-wider" href="#projects">
+          Projects
+        </a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-code-block text-xs tracking-wider" href="#skills">
+          Skills
+        </a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-code-block text-xs tracking-wider" href="#career-education">
+          Career &amp; Education
+        </a>
+      </nav>
+
+      <!-- Action Cluster -->
+      <div class="flex items-center gap-3">
+        <!-- Interactive Terminal Modal Button -->
+        <button class="p-2 bg-surface-container-low border border-outline-variant text-on-surface hover:text-primary hover:border-primary active:translate-x-[2px] active:translate-y-[2px] transition-transform flex items-center justify-center cursor-pointer" id="open-live-term-btn" title="Open Interactive Terminal" aria-label="Open Terminal">
+          <span class="material-symbols-outlined text-lg">terminal</span>
+        </button>
+
+        <!-- Visual Signal Pulse Toggle -->
+        <button class="p-2 bg-surface-container-low border border-outline-variant text-on-surface hover:text-secondary hover:border-secondary active:translate-x-[2px] active:translate-y-[2px] transition-transform flex items-center justify-center cursor-pointer" id="theme-toggle-btn" title="Toggle Visual Signal" aria-label="Visual Signal Toggle">
+          <span class="material-symbols-outlined text-lg">palette</span>
+        </button>
+
+        <!-- Primary Action: Resume -->
+        <button class="hidden sm:inline-flex items-center gap-2 bg-primary-container text-[#00424f] font-code-block text-xs font-bold px-4 py-2 border-2 border-primary-container shadow-[2px_2px_0px_0px_#dfe2ee] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer" id="nav-resume-trigger">
+          <span class="material-symbols-outlined text-base">description</span>
+          Resume
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Bottom Secondary Tab Bar -->
+  <div class="md:hidden fixed bottom-0 left-0 w-full z-40 bg-surface-container-lowest/95 backdrop-blur-lg border-t border-outline-variant px-3 py-2 flex justify-around items-center">
+    <a class="flex flex-col items-center text-[10px] font-code-block text-on-surface-variant hover:text-primary py-1" href="#honors">
+      <span class="material-symbols-outlined text-xl">military_tech</span>
+      <span>Honors</span>
+    </a>
+    <a class="flex flex-col items-center text-[10px] font-code-block text-on-surface-variant hover:text-primary py-1" href="#projects">
+      <span class="material-symbols-outlined text-xl">folder_code</span>
+      <span>Projects</span>
+    </a>
+    <a class="flex flex-col items-center text-[10px] font-code-block text-on-surface-variant hover:text-primary py-1" href="#skills">
+      <span class="material-symbols-outlined text-xl">hub</span>
+      <span>Skills</span>
+    </a>
+    <a class="flex flex-col items-center text-[10px] font-code-block text-on-surface-variant hover:text-primary py-1" href="#career-education">
+      <span class="material-symbols-outlined text-xl">school</span>
+      <span>Career</span>
+    </a>
+    <button class="flex flex-col items-center text-[10px] font-code-block text-primary hover:text-secondary py-1 cursor-pointer" id="mobile-contact-tab">
+      <span class="material-symbols-outlined text-xl">chat</span>
+      <span>Contact</span>
+    </button>
+  </div>
+
+  <main class="pt-24 pb-20 cyber-grid relative">
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="relative max-w-7xl mx-auto px-6 md:px-12 pt-8 pb-16 min-h-[750px] flex flex-col justify-center" id="hero">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <!-- Left Column: Copy & Command Center -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high border border-outline-variant neo-shadow-dark">
+            <span class="w-2 h-2 bg-primary animate-ping"></span>
+            <span class="font-code-block text-[10px] uppercase text-primary tracking-widest">PORTFOLIO PROTOCOL // 2025</span>
+            <span class="text-outline">|</span>
+            <span class="font-code-block text-[10px] text-secondary">ACTIVE INFERENCE ENGINE</span>
+          </div>
+
+          <div class="space-y-3">
+            <h1 class="font-headline text-4xl sm:text-5xl md:text-6xl text-on-surface tracking-tight leading-none font-extrabold">
+              PRUTHVI ANIL MAMANIA
+            </h1>
+            <div class="font-headline text-xl sm:text-2xl text-primary font-bold">
+              Bridging raw data and actionable intelligence.
+            </div>
+
+            <!-- Typewriter Terminal Line -->
+            <div class="flex items-center gap-2 font-code-block text-xs sm:text-sm text-on-surface-variant bg-surface-container-lowest border border-outline-variant p-3">
+              <span class="text-primary font-bold">λ focus:</span>
+              <span class="text-secondary font-semibold" id="typewriter-text">Innovation Champion</span>
+              <span class="inline-block w-2.5 h-4 bg-primary animate-pulse"></span>
+            </div>
+          </div>
+
+          <p class="text-base sm:text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            Data Science undergraduate specializing in applied machine learning, computer vision, and IoT ecosystems. Focused on securing a Data Analyst / Data Science Job.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <button class="bg-primary-container text-[#00424f] font-code-block text-xs sm:text-sm font-bold px-6 py-3.5 border-2 border-primary-container neo-shadow-cyan neo-shadow-cyan-hover active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all flex items-center gap-2 cursor-pointer" id="open-contact-modal-btn">
+              <span class="material-symbols-outlined text-lg">terminal</span>
+              Initialize Contact
+            </button>
+            <button class="bg-surface-container-low text-on-surface font-code-block text-xs sm:text-sm font-bold px-6 py-3.5 border-2 border-outline-variant hover:border-primary hover:text-primary neo-shadow-cyan-hover transition-all flex items-center gap-2 cursor-pointer" id="hero-resume-modal-btn">
+              <span class="material-symbols-outlined text-lg">visibility</span>
+              Interactive Resume Preview
+            </button>
+          </div>
+
+          <!-- Metrics Ribbon -->
+          <div class="grid grid-cols-3 gap-3 pt-6 border-t border-outline-variant">
+            <div class="bg-surface-container-low p-3 border border-outline-variant">
+              <div class="font-headline text-xl sm:text-2xl text-primary font-bold">3+</div>
+              <div class="font-code-block text-[10px] text-on-surface-variant">Core Projects</div>
+            </div>
+            <div class="bg-surface-container-low p-3 border border-outline-variant border-l-2 border-l-secondary">
+              <div class="font-headline text-xl sm:text-2xl text-secondary font-bold">1 Global</div>
+              <div class="font-code-block text-[10px] text-on-surface-variant">Award (IIT Madras)</div>
+            </div>
+            <div class="bg-surface-container-low p-3 border border-outline-variant">
+              <div class="font-headline text-xl sm:text-2xl text-primary-fixed-dim font-bold">4+</div>
+              <div class="font-code-block text-[10px] text-on-surface-variant">Certifications</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Avatar 3D Cyber Box -->
+        <div class="lg:col-span-5 flex justify-center lg:justify-end">
+          <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 group perspective-1000">
+            <div class="absolute -inset-2 bg-gradient-to-r from-primary to-secondary opacity-30 blur-xl group-hover:opacity-60 transition duration-500"></div>
+            <div class="absolute -inset-4 border border-dashed border-outline-variant rounded-full animate-spin [animation-duration:24s] pointer-events-none"></div>
+            <div class="absolute -inset-8 border border-outline-variant/30 rounded-full pointer-events-none"></div>
+
+            <div class="relative w-full h-full bg-surface-container-lowest border-2 border-primary p-3 neo-shadow-cyan transition-transform duration-200 ease-out flex flex-col items-center justify-center overflow-hidden" id="avatar-card">
+              <div class="absolute top-2 left-2 z-20 bg-surface-container-high px-2 py-0.5 border border-outline-variant font-code-block text-[10px] text-primary">
+                PRUTHVI.IMG_01
+              </div>
+              <div class="absolute bottom-2 right-2 z-20 bg-surface-container-high px-2 py-0.5 border border-outline-variant font-code-block text-[10px] text-secondary">
+                MODEL: DS-DEV
+              </div>
+
+              <div class="relative w-full h-full overflow-hidden border border-outline-variant bg-surface-container">
+                <img alt="Pruthvi Anil Mamania - Data Science Specialist" class="w-full h-full object-cover object-center filter grayscale contrast-125 hover:grayscale-0 transition-all duration-500" id="hero-avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMOxvJnsSAvABcgynR7cIfhKCbtUQI62RjMm8bPDsrqYkU5MegOdBfxu4y2C8mHIvk94Fx3G5c9eOn7-f-sEmyhQkKkNATgJ7seO8fpcCUsuihlk3_s2TicHcXYu68ilv14Ivqro4VdW5KgFKVbUVprlI1zPNqp1ov3QFM1VztOlV0g9sC2hLbJh0E_GACwiF2QfpjKCkTBLJDh8nnlznGqipOkQP8cMBnKCJSkiX7sNZhbc4_u3cIKejzY0tRB9M91hA" onerror="this.style.display='none'" />
+                <div class="absolute inset-0 scanlines opacity-30 pointer-events-none"></div>
+                <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/60 to-transparent p-3 pt-8">
+                  <div class="font-headline text-lg sm:text-xl text-on-surface font-bold">Pruthvi Anil Mamania</div>
+                  <div class="font-code-block text-xs text-primary">Data Science | AI Engineer</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== HONORS: IIT MADRAS HYPERLOOP ==================== -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 py-14" id="honors">
+      <div class="flex items-center justify-between border-b-2 border-secondary pb-4 mb-8">
+        <div>
+          <span class="font-code-block text-xs text-secondary uppercase tracking-widest">// GLOBAL RECOGNITION ACCOMPLISHMENT</span>
+          <h2 class="font-headline text-2xl sm:text-3xl md:text-4xl text-on-surface font-extrabold flex items-center gap-3">
+            <span class="material-symbols-outlined text-secondary text-3xl sm:text-4xl">emoji_events</span>
+            Global Hyperloop Competition — IIT Madras
+          </h2>
+        </div>
+        <div class="hidden sm:block text-right">
+          <span class="font-code-block text-xs text-primary bg-surface-container-high px-3 py-1 border border-outline-variant">
+            RANK: CHAMPION POD DESIGN
+          </span>
+        </div>
+      </div>
+
+      <div class="bg-surface-container-low border-2 border-secondary neo-shadow-emerald p-6 md:p-8 mb-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-8 space-y-4">
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-secondary/10 border border-secondary text-secondary font-code-block text-xs font-bold">
+                ★ Innovation Champion — Global Hyperloop Competition, IIT Madras
+              </span>
+              <span class="px-3 py-1 bg-primary/10 border border-primary text-primary font-code-block text-xs font-bold">
+                ★ Best Thermal System Design — Global Hyperloop Competition, IIT Madras
+              </span>
+            </div>
+            <p class="text-base sm:text-lg text-on-surface leading-relaxed">
+              Spearheaded critical mathematical modeling and thermal engineering algorithms for an ultra-high-speed Hyperloop capsule. Designed structural thermal dissipation matrices under extreme near-vacuum operational conditions (sub-ambient pressure envelopes) to safeguard battery banks and onboard avionics compute clusters.
+            </p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3">
+              <div class="bg-surface-container-lowest p-3 border border-outline-variant">
+                <div class="font-code-block text-[10px] text-on-surface-variant">HEAT FLUX REDUCTION</div>
+                <div class="font-headline text-xl text-secondary font-bold">-34.2%</div>
+              </div>
+              <div class="bg-surface-container-lowest p-3 border border-outline-variant">
+                <div class="font-code-block text-[10px] text-on-surface-variant">PCM LATENCY</div>
+                <div class="font-headline text-xl text-primary font-bold">1200 kJ/kg</div>
+              </div>
+              <div class="bg-surface-container-lowest p-3 border border-outline-variant">
+                <div class="font-code-block text-[10px] text-on-surface-variant">PRESSURE RANGE</div>
+                <div class="font-headline text-xl text-on-surface font-bold">0.001 atm</div>
+              </div>
+              <div class="bg-surface-container-lowest p-3 border border-outline-variant">
+                <div class="font-code-block text-[10px] text-on-surface-variant">SAFETY FACTOR</div>
+                <div class="font-headline text-xl text-secondary font-bold">2.4x NOM</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Thermal Telemetry HUD -->
+          <div class="lg:col-span-4 bg-surface-container-lowest border border-outline-variant p-4 font-code-block text-xs">
+            <div class="flex items-center justify-between border-b border-outline-variant pb-2 mb-3 text-secondary">
+              <span class="font-bold flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                THERMAL HUD // LIVE TELEMETRY
+              </span>
+              <span class="text-on-surface-variant">POD-07</span>
+            </div>
+            <div class="space-y-3">
+              <div>
+                <div class="flex justify-between text-[11px] mb-1">
+                  <span class="text-on-surface-variant">Battery Core T_max:</span>
+                  <span class="text-primary font-bold" id="hud-battery-temp">41.8 °C [STABLE]</span>
+                </div>
+                <div class="w-full bg-surface-container h-1.5 border border-outline-variant">
+                  <div class="bg-primary h-full w-[65%]"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-[11px] mb-1">
+                  <span class="text-on-surface-variant">Inverter Heat Sink:</span>
+                  <span class="text-secondary font-bold" id="hud-inverter-temp">38.2 °C [OPTIMAL]</span>
+                </div>
+                <div class="w-full bg-surface-container h-1.5 border border-outline-variant">
+                  <div class="bg-secondary h-full w-[48%]"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-[11px] mb-1">
+                  <span class="text-on-surface-variant">Aero Shell Heat Flux:</span>
+                  <span class="text-primary-fixed-dim font-bold" id="hud-aero-flux">184 W/m²</span>
+                </div>
+                <div class="w-full bg-surface-container h-1.5 border border-outline-variant">
+                  <div class="bg-primary-fixed-dim h-full w-[35%]"></div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 p-2 bg-surface-container-low border border-outline-variant text-[10px] text-on-surface-variant">
+              ✓ Phase Change Material (PCM) modeling verified via transient finite elements.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-surface-container p-4 border border-outline-variant neo-shadow-dark hover:border-secondary transition-colors">
+          <div class="flex items-center gap-2 text-secondary mb-2">
+            <span class="material-symbols-outlined text-xl">thermostat</span>
+            <span class="font-code-block text-xs font-bold">Thermal Dissipation</span>
+          </div>
+          <p class="text-xs text-on-surface-variant leading-relaxed">
+            Engineered conduction pathways coupled with cold-plate micro-channels delivering uniform isothermal gradients across all 18650 cell clusters.
+          </p>
+        </div>
+        <div class="bg-surface-container p-4 border border-outline-variant neo-shadow-dark hover:border-primary transition-colors">
+          <div class="flex items-center gap-2 text-primary mb-2">
+            <span class="material-symbols-outlined text-xl">layers</span>
+            <span class="font-code-block text-xs font-bold">Phase Change Material</span>
+          </div>
+          <p class="text-xs text-on-surface-variant leading-relaxed">
+            Embedded paraffin/expanded graphite matrices absorbing peak inductive heating spikes during rapid acceleration sprints inside the tube.
+          </p>
+        </div>
+        <div class="bg-surface-container p-4 border border-outline-variant neo-shadow-dark hover:border-secondary transition-colors">
+          <div class="flex items-center gap-2 text-secondary mb-2">
+            <span class="material-symbols-outlined text-xl">air</span>
+            <span class="font-code-block text-xs font-bold">Aero Heat Flux</span>
+          </div>
+          <p class="text-xs text-on-surface-variant leading-relaxed">
+            Calculated aerodynamic compression boundary layer friction at transonic speeds to prevent localized stagnation hot spots.
+          </p>
+        </div>
+        <div class="bg-surface-container p-4 border border-outline-variant neo-shadow-dark hover:border-primary transition-colors">
+          <div class="flex items-center gap-2 text-primary mb-2">
+            <span class="material-symbols-outlined text-xl">vacuum</span>
+            <span class="font-code-block text-xs font-bold">Vacuum Envelopes</span>
+          </div>
+          <p class="text-xs text-on-surface-variant leading-relaxed">
+            Overcame the complete absence of convective ambient cooling through high-emissivity radiation coatings and isolated thermal sinks.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PROJECTS SECTION ==================== -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 py-14" id="projects">
+      <div class="flex flex-col md:flex-row md:items-end justify-between border-b-2 border-primary-container pb-4 mb-8 gap-4">
+        <div>
+          <span class="font-code-block text-xs text-primary uppercase tracking-widest">// DECK OF ARTIFACTS &amp; EXPERIMENTS</span>
+          <h2 class="font-headline text-2xl sm:text-3xl md:text-4xl text-on-surface font-extrabold flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary text-3xl sm:text-4xl">terminal</span>
+            Engineered Projects &amp; Applied ML
+          </h2>
+        </div>
+        <p class="text-xs sm:text-sm text-on-surface-variant max-w-md">
+          Explore production models, quantitative pipelines, and end-to-end architectures. Click any card to inspect the interactive technical breakdown.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Project 1: YOLOv11 -->
+        <div class="bg-surface-container-low border-2 border-primary neo-shadow-cyan neo-shadow-cyan-hover p-6 flex flex-col justify-between cursor-pointer project-card transition-all group" data-project="yolo">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 bg-primary/10 border border-primary text-primary font-code-block text-[10px] font-bold">
+                RESEARCH SPOTLIGHT
+              </span>
+              <span class="font-code-block text-[10px] text-on-surface-variant">[mAP@50: 0.83]</span>
+            </div>
+            <h3 class="font-headline text-lg font-bold text-on-surface group-hover:text-primary transition-colors">
+              Vehicle Detection in Foggy Weather Using YOLOv11
+            </h3>
+            <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+              Developed a specialized computer vision pipeline optimizing state-of-the-art YOLOv11 under adverse atmospheric scattering. Integrated dark channel priors and contrast enhancement heuristics.
+            </p>
+            <div class="grid grid-cols-4 gap-1.5 p-2 bg-surface-container-lowest border border-outline-variant font-code-block text-center text-xs">
+              <div>
+                <span class="text-on-surface-variant text-[9px] block">mAP@50</span>
+                <span class="text-primary font-bold">0.83</span>
+              </div>
+              <div>
+                <span class="text-on-surface-variant text-[9px] block">PRECISION</span>
+                <span class="text-secondary font-bold">0.84</span>
+              </div>
+              <div>
+                <span class="text-on-surface-variant text-[9px] block">RECALL</span>
+                <span class="text-primary-fixed-dim font-bold">0.79</span>
+              </div>
+              <div>
+                <span class="text-on-surface-variant text-[9px] block">F1 SCORE</span>
+                <span class="text-secondary font-bold">0.81</span>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-2 font-code-block text-[10px]">
+              <span class="px-2 py-0.5 bg-surface-container border border-outline-variant text-on-surface">Python</span>
+              <span class="px-2 py-0.5 bg-surface-container border border-outline-variant text-on-surface">YOLOv11</span>
+              <span class="px-2 py-0.5 bg-surface-container border border-outline-variant text-on-surface">OpenCV</span>
+              <span class="px-2 py-0.5 bg-surface-container border border-outline-variant text-on-surface">PyTorch</span>
+            </div>
+          </div>
+          <div class="pt-6 border-t border-outline-variant flex items-center justify-between mt-6">
+            <span class="text-primary font-code-block text-xs flex items-center gap-1 font-bold group-hover:translate-x-1 transition-transform">
+              Inspect Deep Architecture
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </span>
+            <span class="material-symbols-outlined text-on-surface-variant">tune</span>
+          </div>
+        </div>
+
+        <!-- Project 2: AQI Analytics -->
+        <div class="bg-surface-container-low border border-outline-variant neo-shadow-dark neo-shadow-cyan-hover p-6 flex flex-col justify-between cursor-pointer project-card transition-all group" data-project="aqi">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 bg-secondary/10 border border-secondary text-secondary font-code-block text-[10px] font-bold">
+                DATA ENGINEERING
+              </span>
+              <span class="font-code-block text-[10px] text-on-surface-variant">[12 CITIES DATASET]</span>
+            </div>
+            <h3 class="font-headline text-lg font-bold text-on-surface group-hover:text-secondary transition-colors">
+              Air Quality Analytics Platform Across Indian Cities
+            </h3>
+            <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+              Comprehensive data extraction, statistical anomaly detection, and temporal trend clustering pipeline evaluating PM2.5, PM10, SO2, and NOx pollutant distributions with automated reporting.
+            </p>
+            <div class="bg-surface-container-lowest p-3 border border-outline-variant font-code-block text-xs space-y-1">
+              <div class="flex justify-between text-on-surface-variant text-[11px]">
+                <span>Anomaly Detection:</span>
+                <span class="text-secondary font-bold">Isolation Forest</span>
+              </div>
+              <div class="flex justify-between text-on-surface-variant text-[11px]">
+                <span>Clustering:</span>
+                <span class="text-primary font-bold">K-Means &amp; DBSCAN</span>
+              </div>
+              <div class="flex justify-between text-on-surface-variant text-[11px]">
+                <span>Processing Latency:</span>
+                <span class="text-primary-fixed-dim font-bold">0.42s / 50k rows</span>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-2 font-code-block text-[10px]">
+              <span class="px-2 py-0.5 bg-surface-container border border-outline-variant text-on-surface">Pandas</span>
+              <span class="px-2 py-0.5 bg-surface-container border border-outline-variant text-on-surface">NumPy</span>
+              <span class="px-2 py-0.5 bg-surface-container border border-outline-variant text-on-surface">Matplotlib</span>
+              <span class="px-2 py-0.5 bg-surface-container border border-outline-variant text-on-surface">Scikit-Learn</span>
+            </div>
+          </div>
+          <div class="pt-6 border-t border-outline-variant flex items-center justify-between mt-6">
+            <span class="text-secondary font-code-block text-xs flex items-center gap-1 font-bold group-hover:translate-x-1 transition-transform">
+              View Analytics Modal
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </span>
+            <span class="material-symbols-outlined text-on-surface-variant">code</span>
+          </div>
+        </div>
+
+        <!-- Project 3: HR Dashboard -->
+        <div class="bg-surface-container-low border border-outline-variant neo-shadow-dark neo-shadow-cyan-hover p-6 flex flex-col justify-between cursor-pointer project-card transition-all group" data-project="hr">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 bg-tertiary-container/20 border border-tertiary text-tertiary font-code-block text-[10px] font-bold">
+                UI &amp; ANALYTICS
+              </span>
+              <span class="font-code-block text-[10px] text-on-surface-variant">[GOOGLE STITCH UI]</span>
+            </div>
+            <h3 class="font-headline text-lg font-bold text-on-surface group-hover:text-primary transition-colors">
+              AI-Assisted HR Productivity Dashboard UI
+            </h3>
+            <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+              Engineered high-efficiency recruitment telemetry and employee retention analytics dashboards. Integrated talent pipeline KPI funnels, candidate scoring models, and modern responsive design.
+            </p>
+            <div class="bg-surface-container-lowest p-3 border border-outline-variant font-code-block text-xs space-y-1">
+              <div class="flex justify-between text-on-surface-variant text-[11px]">
+                <span>UI Architecture:</span>
+                <span class="text-tertiary font-bold">Bento Analytics Grid</span>
+              </div>
+              <div class="flex justify-between text-on-surface-variant text-[11px]">
+                <span>KPI Metrics:</span>
+                <span class="text-primary font-bold">Attrition &amp; Time-to-Hire</span>
+              </div>
+              <div class="flex justify-between text-on-surface-variant text-[11px]">
+                <span>Component Fidelity:</span>
+                <span class="text-secondary font-bold">Figma -&gt; HTML/CSS</span>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-2 font-code-block text-[10px]">
+              <span class="px-2 py-0.5 bg-surface-container border border-outline-variant text-on-surface">Tailwind CSS</span>
+              <span class="px-2 py-0.5 bg-surface-container border border-outline-variant text-on-surface">JavaScript</span>
+              <span class="px-2 py-0.5 bg-surface-container border border-outline-variant text-on-surface">Figma</span>
+              <span class="px-2 py-0.5 bg-surface-container border border-outline-variant text-on-surface">Stitch AI</span>
+            </div>
+          </div>
+          <div class="pt-6 border-t border-outline-variant flex items-center justify-between mt-6">
+            <span class="text-primary font-code-block text-xs flex items-center gap-1 font-bold group-hover:translate-x-1 transition-transform">
+              Launch Overview Modal
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </span>
+            <span class="material-symbols-outlined text-on-surface-variant">code</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SKILLS & IOT TELEMETRY ==================== -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 py-14" id="skills">
+      <div class="border-b-2 border-outline-variant pb-4 mb-8">
+        <span class="font-code-block text-xs text-primary uppercase tracking-widest">// TECHNICAL CAPABILITIES MATRIX</span>
+        <h2 class="font-headline text-2xl sm:text-3xl md:text-4xl text-on-surface font-extrabold flex items-center gap-3">
+          <span class="material-symbols-outlined text-primary text-3xl sm:text-4xl">hub</span>
+          Interactive Competencies &amp; Live IoT Telemetry
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-7 bg-surface-container-low border-2 border-outline-variant p-6 neo-shadow-dark">
+          <div class="flex flex-wrap gap-2 mb-6 border-b border-outline-variant pb-4">
+            <button class="skill-filter-btn px-3 py-1.5 bg-primary text-[#003640] font-code-block text-xs font-bold border border-primary cursor-pointer" data-category="all">
+              ALL NODES
+            </button>
+            <button class="skill-filter-btn px-3 py-1.5 bg-surface-container text-on-surface-variant hover:text-primary font-code-block text-xs border border-outline-variant cursor-pointer" data-category="ml">
+              Data Science &amp; ML
+            </button>
+            <button class="skill-filter-btn px-3 py-1.5 bg-surface-container text-on-surface-variant hover:text-primary font-code-block text-xs border border-outline-variant cursor-pointer" data-category="lang">
+              Languages &amp; DB
+            </button>
+            <button class="skill-filter-btn px-3 py-1.5 bg-surface-container text-on-surface-variant hover:text-primary font-code-block text-xs border border-outline-variant cursor-pointer" data-category="tools">
+              DevOps &amp; Tools
+            </button>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" id="skills-grid">
+            <div class="skill-node p-3 bg-surface-container-lowest border border-outline-variant hover:border-primary transition-all cursor-pointer group" data-category="lang" data-details="Python: Deep learning pipelines, pandas, numpy, scikit-learn, vector operations, and algorithmic development.">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-code-block text-xs text-on-surface font-bold group-hover:text-primary">Python</span>
+                <span class="font-code-block text-[11px] text-primary">90%</span>
+              </div>
+              <div class="w-full bg-surface-container h-1.5">
+                <div class="bg-primary h-full w-[90%]"></div>
+              </div>
+            </div>
+
+            <div class="skill-node p-3 bg-surface-container-lowest border border-outline-variant hover:border-secondary transition-all cursor-pointer group" data-category="lang" data-details="SQL: Joins, subqueries, aggregations, schema design, EXPLAIN ANALYZE indexing, query optimization.">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-code-block text-xs text-on-surface font-bold group-hover:text-secondary">SQL</span>
+                <span class="font-code-block text-[11px] text-secondary">92%</span>
+              </div>
+              <div class="w-full bg-surface-container h-1.5">
+                <div class="bg-secondary h-full w-[92%]"></div>
+              </div>
+            </div>
+
+            <div class="skill-node p-3 bg-surface-container-lowest border border-outline-variant hover:border-primary transition-all cursor-pointer group" data-category="ml" data-details="YOLOv11: Real-time object detection, backbone feature pyramid tuning, bounding box regression, adverse condition inference.">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-code-block text-xs text-on-surface font-bold group-hover:text-primary">YOLOv11</span>
+                <span class="font-code-block text-[11px] text-primary">85%</span>
+              </div>
+              <div class="w-full bg-surface-container h-1.5">
+                <div class="bg-primary h-full w-[85%]"></div>
+              </div>
+            </div>
+
+            <div class="skill-node p-3 bg-surface-container-lowest border border-outline-variant hover:border-secondary transition-all cursor-pointer group" data-category="ml" data-details="Scikit-Learn: Classification, regression, clustering (K-Means, DBSCAN), dimensionality reduction (PCA), model cross-validation.">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-code-block text-xs text-on-surface font-bold group-hover:text-secondary">Scikit-Learn</span>
+                <span class="font-code-block text-[11px] text-secondary">88%</span>
+              </div>
+              <div class="w-full bg-surface-container h-1.5">
+                <div class="bg-secondary h-full w-[88%]"></div>
+              </div>
+            </div>
+
+            <div class="skill-node p-3 bg-surface-container-lowest border border-outline-variant hover:border-primary transition-all cursor-pointer group" data-category="tools" data-details="Power BI: DAX calculations, interactive KPI storytelling, tabular semantic models, automated executive dashboards.">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-code-block text-xs text-on-surface font-bold group-hover:text-primary">Power BI</span>
+                <span class="font-code-block text-[11px] text-primary">82%</span>
+              </div>
+              <div class="w-full bg-surface-container h-1.5">
+                <div class="bg-primary h-full w-[82%]"></div>
+              </div>
+            </div>
+
+            <div class="skill-node p-3 bg-surface-container-lowest border border-outline-variant hover:border-secondary transition-all cursor-pointer group" data-category="tools" data-details="Git: Branching architectures, atomic commit discipline, automated CI pipelines, merge resolution, collaboration.">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-code-block text-xs text-on-surface font-bold group-hover:text-secondary">Git &amp; GitHub</span>
+                <span class="font-code-block text-[11px] text-secondary">85%</span>
+              </div>
+              <div class="w-full bg-surface-container h-1.5">
+                <div class="bg-secondary h-full w-[85%]"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Inspection Drawer -->
+          <div class="mt-6 p-4 bg-surface-container-lowest border border-primary text-xs font-code-block" id="skill-inspector">
+            <span class="text-primary font-bold">λ HOVER OR TAP A NODE ABOVE:</span>
+            <p class="text-on-surface mt-1 leading-relaxed" id="skill-inspector-text">Python: Deep learning pipelines, pandas, numpy, scikit-learn, vector operations, and algorithmic development.</p>
+          </div>
+
+          <!-- Modern Workflow Toolbox -->
+          <div class="mt-6 pt-4 border-t border-outline-variant">
+            <span class="font-code-block text-[10px] text-on-surface-variant block mb-3 uppercase tracking-wider">
+              // Modern Workflow Toolbox
+            </span>
+            <div class="grid grid-cols-3 gap-3">
+              <div class="p-2.5 bg-surface-container-lowest border border-outline-variant text-center">
+                <span class="font-code-block text-xs text-primary font-bold block">Prompt Eng.</span>
+                <span class="text-[10px] text-on-surface-variant font-code-block">Zero/Few-Shot &amp; CoT</span>
+              </div>
+              <div class="p-2.5 bg-surface-container-lowest border border-outline-variant text-center">
+                <span class="font-code-block text-xs text-secondary font-bold block">ChatGPT</span>
+                <span class="text-[10px] text-on-surface-variant font-code-block">Synthetic Datasets</span>
+              </div>
+              <div class="p-2.5 bg-surface-container-lowest border border-outline-variant text-center">
+                <span class="font-code-block text-xs text-tertiary font-bold block">GH Copilot</span>
+                <span class="text-[10px] text-on-surface-variant font-code-block">Pair Acceleration</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Client-side IoT Sensor Terminal -->
+        <div class="lg:col-span-5 bg-surface-container-lowest border-2 border-primary neo-shadow-cyan p-5 font-code-block">
+          <div class="flex items-center justify-between border-b border-outline-variant pb-3 mb-4">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 bg-secondary animate-ping"></span>
+              <span class="text-on-surface font-bold text-sm tracking-wide">IoT TELEMETRY ENGINE</span>
+            </div>
+            <button class="px-2.5 py-1 bg-surface-container text-primary hover:bg-primary hover:text-[#003640] border border-primary text-[10px] transition-colors cursor-pointer" id="toggle-iot-btn">
+              PAUSE STREAM
+            </button>
+          </div>
+
+          <div class="space-y-3 text-xs mb-4">
+            <div class="flex justify-between items-center bg-surface-container-low p-2 border border-outline-variant">
+              <span class="text-on-surface-variant">DEVICE:</span>
+              <span class="text-primary font-bold">NodeMCU ESP8266</span>
+            </div>
+            <div class="flex justify-between items-center bg-surface-container-low p-2 border border-outline-variant">
+              <span class="text-on-surface-variant">GATEWAY LINK:</span>
+              <span class="text-secondary font-bold">Blynk IoT Cloud [ONLINE]</span>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <div class="bg-surface-container-low p-2 border border-outline-variant">
+                <span class="text-on-surface-variant text-[10px] block">TEMPERATURE</span>
+                <span class="text-base font-bold text-primary" id="iot-temp">28.3 °C</span>
+              </div>
+              <div class="bg-surface-container-low p-2 border border-outline-variant">
+                <span class="text-on-surface-variant text-[10px] block">ATM PRESSURE</span>
+                <span class="text-base font-bold text-secondary" id="iot-press">1013.0 hPa</span>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <div class="bg-surface-container-low p-2 border border-outline-variant">
+                <span class="text-on-surface-variant text-[10px] block">SIGNAL RSSI</span>
+                <span class="text-base font-bold text-on-surface" id="iot-rssi">-65 dBm</span>
+              </div>
+              <div class="bg-surface-container-low p-2 border border-outline-variant">
+                <span class="text-on-surface-variant text-[10px] block">PACKETS TRANSMITTED</span>
+                <span class="text-base font-bold text-primary-fixed-dim" id="iot-packets">14,930</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="border border-outline-variant bg-surface-container-high/40 p-2.5 text-[10px] text-on-surface-variant h-36 overflow-y-auto space-y-1" id="iot-log-stream">
+            <div class="text-primary">[18:59:05] ESP8266 packet #15051 transmitted to Blynk Cloud -&gt; 200 OK</div>
+            <div class="text-primary">[18:59:08] ESP8266 packet #15052 transmitted to Blynk Cloud -&gt; 200 OK</div>
+            <div class="text-primary">[18:59:12] ESP8266 packet #15053 transmitted to Blynk Cloud -&gt; 200 OK</div>
+          </div>
+
+          <div class="mt-3 text-[10px] text-outline flex items-center justify-between">
+            <span>BAUD: 115200 N-8-1</span>
+            <span>STATUS: ACTIVE RUNTIME</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CAREER & SQL IDE ==================== -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 py-14" id="career-education">
+      <div class="flex flex-col md:flex-row md:items-end justify-between border-b-2 border-primary pb-4 mb-8 gap-4">
+        <div>
+          <span class="font-code-block text-xs text-primary uppercase tracking-widest">// PROFESSIONAL EXPERIENCE RECORD</span>
+          <h2 class="font-headline text-2xl sm:text-3xl md:text-4xl text-on-surface font-extrabold flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary text-3xl sm:text-4xl">terminal</span>
+            Interactive SQL Engineering IDE
+          </h2>
+        </div>
+        <div class="font-code-block text-xs text-secondary bg-surface-container-high px-3 py-1 border border-outline-variant">
+          CodeTech IT Solutions (June 2025 – August 2025)
+        </div>
+      </div>
+
+      <div class="bg-surface-container-lowest border-2 border-outline-variant neo-shadow-cyan overflow-hidden font-code-block">
+        <div class="bg-surface-container-low border-b border-outline-variant px-4 py-2 flex items-center justify-between flex-wrap gap-2">
+          <div class="flex items-center gap-2">
+            <button class="ide-tab-btn px-3 py-1.5 bg-surface-container-lowest border-t-2 border-primary text-primary text-xs font-bold flex items-center gap-2 cursor-pointer" id="ide-tab-sql" data-tab="sql">
+              <span class="material-symbols-outlined text-sm">database</span>
+              queries_optimization.sql
+            </button>
+            <button class="ide-tab-btn px-3 py-1.5 bg-surface-container-high/60 text-on-surface-variant hover:text-on-surface text-xs flex items-center gap-2 cursor-pointer" id="ide-tab-py" data-tab="py">
+              <span class="material-symbols-outlined text-sm">data_object</span>
+              schema_validation.py
+            </button>
+          </div>
+          <div class="text-[11px] text-on-surface-variant flex items-center gap-3">
+            <span>ROLE: SQL Engineering Intern</span>
+            <span class="text-secondary font-bold">● EXECUTED</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[380px]">
+          <div class="lg:col-span-8 p-4 text-xs md:text-sm text-on-surface leading-relaxed border-b lg:border-b-0 lg:border-r border-outline-variant overflow-x-auto">
+            <div class="space-y-1" id="tab-content-sql">
+              <div class="text-outline select-none">-- SQL Optimization Suite: High-Throughput Relational Pipeline</div>
+              <div class="text-outline select-none">-- Click highlighted comments below to trigger live architectural insights:</div>
+              <div class="h-2"></div>
+
+              <div class="ide-insight-trigger p-1.5 hover:bg-surface-container-high cursor-pointer transition-colors border-l-2 border-primary bg-surface-container-high group" data-insight="step1">
+                <span class="text-primary font-bold group-hover:underline">-- STEP 1: Query Indexing &amp; EXPLAIN ANALYZE Optimization</span>
+                <span class="text-[10px] text-secondary ml-2">[Click to Inspect]</span>
+              </div>
+              <div class="text-on-surface-variant pl-4 text-xs">
+                CREATE INDEX idx_user_events_ts ON telemetry_events (user_id, recorded_at DESC);<br>
+                EXPLAIN ANALYZE SELECT * FROM telemetry_events WHERE user_id = 9028;
+              </div>
+
+              <div class="h-2"></div>
+
+              <div class="ide-insight-trigger p-1.5 hover:bg-surface-container-high cursor-pointer transition-colors border-l-2 border-transparent hover:border-secondary group" data-insight="step2">
+                <span class="text-secondary font-bold group-hover:underline">-- STEP 2: Complex Relational Joins &amp; Subqueries Execution</span>
+                <span class="text-[10px] text-secondary ml-2">[Click to Inspect]</span>
+              </div>
+              <div class="text-on-surface-variant pl-4 text-xs">
+                WITH aggregated_metrics AS (<br>
+                &nbsp;&nbsp;SELECT account_id, COUNT(*) as txn_count, AVG(latency_ms) as avg_lat<br>
+                &nbsp;&nbsp;FROM transaction_logs WHERE status = '200' GROUP BY account_id<br>
+                )<br>
+                SELECT a.name, m.txn_count FROM accounts a JOIN aggregated_metrics m ON a.id = m.account_id;
+              </div>
+
+              <div class="h-2"></div>
+
+              <div class="ide-insight-trigger p-1.5 hover:bg-surface-container-high cursor-pointer transition-colors border-l-2 border-transparent hover:border-primary-fixed-dim group" data-insight="step3">
+                <span class="text-primary-fixed-dim font-bold group-hover:underline">-- STEP 3: Structural Validation &amp; Integrity Guardrails</span>
+                <span class="text-[10px] text-secondary ml-2">[Click to Inspect]</span>
+              </div>
+              <div class="text-on-surface-variant pl-4 text-xs">
+                ALTER TABLE enterprise_records ADD CONSTRAINT chk_data_non_null<br>
+                CHECK (record_hash IS NOT NULL AND array_length(vector_dim, 1) = 512);
+              </div>
+            </div>
+
+            <div class="space-y-1 hidden" id="tab-content-py">
+              <div class="text-outline"># schema_validation.py - CodeTech Automated Test Suites</div>
+              <div class="text-on-surface-variant text-xs">
+                import psycopg2<br>
+                from typing import List, Dict<br><br>
+                def execute_schema_integrity_audit(db_cursor) -&gt; Dict[str, bool]:<br>
+                &nbsp;&nbsp;db_cursor.execute("SELECT table_name FROM information_schema.tables WHERE table_schema='public';")<br>
+                &nbsp;&nbsp;tables = db_cursor.fetchall()<br>
+                &nbsp;&nbsp;print(f"[OK] Validated {len(tables)} tables with 100% relational integrity.")<br>
+                &nbsp;&nbsp;return {"status": "STABLE", "foreign_keys_intact": True}
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 p-5 bg-surface-container-low flex flex-col justify-between">
+            <div>
+              <div class="text-xs text-primary font-bold border-b border-outline-variant pb-2 mb-3 flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm">memory</span>
+                ENGINEERING IMPACT DRAWER
+              </div>
+              <div class="space-y-3 text-xs" id="ide-impact-content">
+                <div class="text-secondary font-bold text-sm">Query Indexing &amp; EXPLAIN ANALYZE</div>
+                <p class="text-on-surface-variant leading-relaxed">
+                  Refactored mission-critical legacy queries across multi-million record PostgreSQL databases. By deploying composite B-Tree indexes and optimizing execution plans, reduced database query latency by over 45% during peak traffic simulations.
+                </p>
+                <div class="p-2.5 bg-surface-container-lowest border border-outline-variant text-[11px] space-y-1">
+                  <div class="flex justify-between">
+                    <span class="text-outline">Pre-Opt Benchmark:</span>
+                    <span class="text-error font-bold">184 ms</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-outline">Post-Opt Benchmark:</span>
+                    <span class="text-secondary font-bold">14 ms (92% speedup)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-3 border-t border-outline-variant text-[11px] text-on-surface-variant flex items-center justify-between">
+              <span>INTERNSHIP VERIFIED</span>
+              <span class="text-primary font-bold">CODETECH IT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ACADEMICS & CREDENTIALS ==================== -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 py-14">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div class="lg:col-span-6 space-y-6">
+          <div class="border-b-2 border-outline-variant pb-3">
+            <span class="font-code-block text-xs text-primary uppercase tracking-widest">// FORMAL ACADEMIC MILESTONES</span>
+            <h3 class="font-headline text-xl sm:text-2xl text-on-surface font-extrabold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary text-3xl">school</span>
+              Academic Foundation
+            </h3>
+          </div>
+
+          <div class="space-y-4 font-code-block">
+            <div class="bg-surface-container-low border-l-4 border-l-primary border-t border-r border-b border-outline-variant p-4">
+              <div class="flex justify-between items-start flex-wrap gap-1">
+                <span class="text-primary font-bold text-sm">B.Tech IT &amp; Data Science</span>
+                <span class="text-secondary font-bold text-xs">CGPA: 7.21</span>
+              </div>
+              <div class="text-on-surface text-xs font-semibold mt-1">Ajeenkya D.Y. Patil University (Seamedu), Pune</div>
+              <div class="text-on-surface-variant text-[11px] mt-1">Duration: 2023 – 2027 | Undergraduate Scholar</div>
+            </div>
+
+            <div class="bg-surface-container-low border-l-4 border-l-secondary border-t border-r border-b border-outline-variant p-4">
+              <div class="flex justify-between items-start flex-wrap gap-1">
+                <span class="text-secondary font-bold text-sm">12th Grade (Science Stream)</span>
+                <span class="text-on-surface font-bold text-xs">Score: 62.5%</span>
+              </div>
+              <div class="text-on-surface text-xs font-semibold mt-1">St. John International School, Palghar</div>
+              <div class="text-on-surface-variant text-[11px] mt-1">Completed: 2022 – 2023</div>
+            </div>
+
+            <div class="bg-surface-container-low border-l-4 border-l-outline-variant border-t border-r border-b border-outline-variant p-4">
+              <div class="flex justify-between items-start flex-wrap gap-1">
+                <span class="text-on-surface font-bold text-sm">10th Grade (ICSE Board)</span>
+                <span class="text-on-surface font-bold text-xs">Score: 72.5%</span>
+              </div>
+              <div class="text-on-surface text-xs font-semibold mt-1">Sir J. P. International School, Palghar</div>
+              <div class="text-on-surface-variant text-[11px] mt-1">Completed: 2020 – 2021</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 space-y-6">
+          <div class="border-b-2 border-outline-variant pb-3">
+            <span class="font-code-block text-xs text-secondary uppercase tracking-widest">// INDUSTRY-VALIDATED CREDENTIALS</span>
+            <h3 class="font-headline text-xl sm:text-2xl text-on-surface font-extrabold flex items-center gap-2">
+              <span class="material-symbols-outlined text-secondary text-3xl">verified</span>
+              Professional Certifications
+            </h3>
+          </div>
+
+          <div class="grid grid-cols-1 gap-3 font-code-block">
+            <div class="bg-surface-container-low border border-outline-variant p-3.5 flex items-center justify-between hover:border-primary transition-colors">
+              <div>
+                <div class="text-on-surface font-bold text-xs">IBM Data Science Professional Certificate</div>
+                <div class="text-on-surface-variant text-[11px]">Issuer: IBM | Completion Year: 2025</div>
+              </div>
+              <span class="px-2 py-0.5 bg-primary/10 text-primary border border-primary text-[10px] font-bold">VERIFIED</span>
+            </div>
+
+            <div class="bg-surface-container-low border border-outline-variant p-3.5 flex items-center justify-between hover:border-secondary transition-colors">
+              <div>
+                <div class="text-on-surface font-bold text-xs">SQL Certification Course</div>
+                <div class="text-on-surface-variant text-[11px]">Issuer: Simplilearn | Year: 2025</div>
+              </div>
+              <span class="px-2 py-0.5 bg-secondary/10 text-secondary border border-secondary text-[10px] font-bold">VERIFIED</span>
+            </div>
+
+            <div class="bg-surface-container-low border border-outline-variant p-3.5 flex items-center justify-between hover:border-primary-fixed-dim transition-colors">
+              <div>
+                <div class="text-on-surface font-bold text-xs">Develop Clustering Models with Azure ML Designer</div>
+                <div class="text-on-surface-variant text-[11px]">Issuer: Microsoft | Date: March 2026</div>
+              </div>
+              <span class="px-2 py-0.5 bg-primary/10 text-primary border border-primary text-[10px] font-bold">CLOUD ML</span>
+            </div>
+
+            <div class="bg-surface-container-low border border-outline-variant p-3.5 flex items-center justify-between hover:border-secondary transition-colors">
+              <div>
+                <div class="text-on-surface font-bold text-xs">Build Reliable Agentic AI Applications</div>
+                <div class="text-on-surface-variant text-[11px]">Issuer: Simplilearn | SkillUp | Date: June 2026</div>
+              </div>
+              <span class="px-2 py-0.5 bg-secondary/10 text-secondary border border-secondary text-[10px] font-bold">AGENTIC AI</span>
+            </div>
+          </div>
+
+          <div class="p-3 bg-surface-container-lowest border border-outline-variant flex items-center justify-between text-xs font-code-block">
+            <span class="text-on-surface-variant flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-base text-secondary">workspace_premium</span>
+              Verbatim credential records verified against registry
+            </span>
+            <button class="text-primary hover:underline font-bold cursor-pointer" id="view-credentials-sheet-btn">
+              View Evidence Sheet
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="w-full bg-surface-container-lowest border-t border-outline-variant">
+    <div class="flex flex-col md:flex-row justify-between items-center w-full px-6 md:px-12 py-8 max-w-7xl mx-auto gap-4">
+      <div class="flex items-center gap-3">
+        <span class="font-code-block text-sm font-bold text-primary">pruthvi.ds()</span>
+        <span class="text-outline">|</span>
+        <span class="font-code-block text-xs text-on-surface-variant">
+          © 2025 PRUTHVI.DS // NEURAL ARCHITECTURE ONLINE
+        </span>
+      </div>
+
+      <div class="flex items-center space-x-6">
+        <a class="text-on-surface-variant font-code-block text-xs hover:text-secondary transition-colors" href="https://github.com" target="_blank" rel="noreferrer">
+          GitHub
+        </a>
+        <a class="text-on-surface-variant font-code-block text-xs hover:text-secondary transition-colors" href="https://linkedin.com" target="_blank" rel="noreferrer">
+          LinkedIn
+        </a>
+        <button class="text-on-surface-variant font-code-block text-xs hover:text-secondary transition-colors cursor-pointer" id="footer-terminal-link">
+          Terminal
+        </button>
+        <button class="text-on-surface-variant font-code-block text-xs hover:text-secondary transition-colors cursor-pointer" id="footer-doc-link">
+          Documentation
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Sticky Action Button -->
+  <div class="fixed bottom-6 right-6 z-40 hidden sm:block">
+    <button class="bg-primary-container text-[#00424f] font-code-block text-xs font-bold px-4 py-3 border-2 border-primary neo-shadow-cyan neo-shadow-cyan-hover flex items-center gap-2 transition-all cursor-pointer" id="floating-resume-btn">
+      <span class="material-symbols-outlined text-base">download</span>
+      <span>RESUME.PDF</span>
+    </button>
+  </div>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- 1. CONTACT MODAL -->
+  <div class="fixed inset-0 z-[80] bg-surface-container-lowest/85 backdrop-blur-md hidden items-center justify-center p-4" id="contact-modal">
+    <div class="w-full max-w-lg bg-surface-container-low border-2 border-primary neo-shadow-cyan p-6 relative font-body">
+      <div class="flex items-center justify-between border-b border-outline-variant pb-3 mb-5">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 bg-primary"></span>
+          <h3 class="font-headline text-lg text-on-surface font-bold">Initialize Contact Stream</h3>
+        </div>
+        <button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer" id="close-contact-modal">
+          <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+      </div>
+      <form class="space-y-4" id="contact-form">
+        <div>
+          <label class="block font-code-block text-xs text-on-surface-variant mb-1">CANDIDATE / RECRUITER NAME</label>
+          <input class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary text-on-surface font-code-block text-xs p-3 outline-none" placeholder="e.g. Alex Mercer" required="" type="text" />
+        </div>
+        <div>
+          <label class="block font-code-block text-xs text-on-surface-variant mb-1">TRANSMISSION EMAIL</label>
+          <input class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary text-on-surface font-code-block text-xs p-3 outline-none" placeholder="name@company.com" required="" type="email" />
+        </div>
+        <div>
+          <label class="block font-code-block text-xs text-on-surface-variant mb-1">REASON FOR CONTACT</label>
+          <select class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary text-on-surface font-code-block text-xs p-3 outline-none">
+            <option>Data Analyst / Data Scientist Role</option>
+            <option>Applied ML / Computer Vision Project</option>
+            <option>Contract Engineering / Consultation</option>
+            <option>Academic or Research Inquiry</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-code-block text-xs text-on-surface-variant mb-1">PAYLOAD MESSAGE</label>
+          <textarea class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary text-on-surface font-code-block text-xs p-3 outline-none" placeholder="Detail the role, technical scope, or opportunity..." required="" rows="3"></textarea>
+        </div>
+        <button class="w-full bg-primary-container text-[#00424f] font-code-block text-sm font-bold py-3.5 border-2 border-primary neo-shadow-cyan flex items-center justify-center gap-2 hover:bg-primary transition-all cursor-pointer" id="submit-contact-btn" type="submit">
+          <span class="hidden w-4 h-4 border-2 border-[#00424f] border-t-transparent rounded-full animate-spin" id="submit-spinner"></span>
+          <span id="submit-label">Transmit Data Packet</span>
+        </button>
+      </form>
+      <div class="hidden mt-4 p-3 bg-secondary/15 border border-secondary text-secondary font-code-block text-xs flex items-center gap-2" id="contact-success-msg">
+        <span class="material-symbols-outlined text-base">check_circle</span>
+        <span>Data stream received successfully! Pruthvi will respond shortly.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. RESUME MODAL -->
+  <div class="fixed inset-0 z-[80] bg-surface-container-lowest/85 backdrop-blur-md hidden items-center justify-center p-4" id="resume-modal">
+    <div class="w-full max-w-4xl bg-surface-container-low border-2 border-primary neo-shadow-cyan max-h-[85vh] flex flex-col font-body">
+      <div class="flex items-center justify-between border-b border-outline-variant p-4 bg-surface-container-lowest">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-xl">description</span>
+          <span class="font-headline text-lg text-on-surface font-bold">Curriculum Vitae // Pruthvi Anil Mamania</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="px-3 py-1 bg-surface-container border border-outline-variant text-on-surface-variant hover:text-primary text-xs font-code-block flex items-center gap-1 cursor-pointer" onclick="window.print()" title="Print CV">
+            <span class="material-symbols-outlined text-sm">print</span>
+            Print
+          </button>
+          <button class="text-on-surface-variant hover:text-primary p-1 cursor-pointer" id="close-resume-modal">
+            <span class="material-symbols-outlined text-2xl">close</span>
+          </button>
+        </div>
+      </div>
+      <div class="p-6 overflow-y-auto space-y-6 text-on-surface text-xs sm:text-sm">
+        <div class="border-b border-outline-variant pb-4">
+          <h2 class="font-headline text-2xl text-primary font-bold">PRUTHVI ANIL MAMANIA</h2>
+          <div class="font-code-block text-xs text-on-surface-variant mt-1 flex flex-wrap gap-4">
+            <span>Location: Pune / Palghar, India</span>
+            <span>Target: Data Analyst / Data Scientist</span>
+            <span>GitHub: github.com</span>
+          </div>
+        </div>
+        <div>
+          <div class="font-code-block text-xs text-secondary font-bold uppercase tracking-wider mb-1">// Professional Profile</div>
+          <p class="text-on-surface-variant leading-relaxed">
+            Data Science undergraduate with specialized focus in machine learning, computer vision (YOLO architectures), and high-throughput SQL database optimization. Proven track record including award-winning Hyperloop thermal engineering design recognized at IIT Madras.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border border-outline-variant p-4 bg-surface-container-lowest">
+          <div>
+            <div class="font-code-block text-[10px] text-primary mb-2">// Verified Document Artifact (Data Sheet)</div>
+            <img alt="Official Academic and Career Record Evidence" class="w-full h-48 object-cover border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8hfl2Rl-aL0VnwUurkVF0aROdsX0ci8U1H1YBwcBAmtyBMdeHPT-pa4vgOPSPRQs88UiQm0a77NZmwioscVfzI2fMeevdMk-T_tV9yxtN8S-4I7UqJKpCZwAixH1dUS9yK0T3a_N8SVOr78P5GwpJ6wKytWwYo6EiajvQh8GUu-QQ897UYgyzBzAOCevTiNuJjGvfNCbHQr-wc7SnkFd8XBjnvPG6z1qkB9zLjlsoE5QVcOrl8EDaQgop_RVK0tKCvY0" onerror="this.style.display='none'" />
+          </div>
+          <div>
+            <div class="font-code-block text-[10px] text-secondary mb-2">// Verified Award &amp; Scorecard Telemetry</div>
+            <img alt="IIT Madras Hyperloop Competition Performance Record" class="w-full h-48 object-cover border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXSxZ3_j2KSivjMqEgoyaDteTEZfG5All9xCStGdcoNztAPaFLlZEMVfS3bMZ9dLfOksFouAfd_jcoOa0rbaQCZE0df_CJu5_ptj9vEEUfo_hvJBKk6oOtmxpsdcSNwLpDsQllTf_WI5sQrSjgbYGuL5GS5s000PA2ccBzB8jh9ecynqzr4vLODnJLhBDRa3J9iBeXRLuURS2dP3cMhSF5AS0iYnAxRC4WDp0JuoEPOu0s5PxhKT43jICNc9dw7gShEdM" onerror="this.style.display='none'" />
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 font-code-block text-xs">
+          <div class="p-3 bg-surface-container border border-outline-variant">
+            <span class="text-primary font-bold block mb-1">Programming &amp; ML</span>
+            <span class="text-on-surface-variant">Python, YOLOv11, Scikit-learn, OpenCV, PyTorch, Pandas, NumPy</span>
+          </div>
+          <div class="p-3 bg-surface-container border border-outline-variant">
+            <span class="text-secondary font-bold block mb-1">Data &amp; Analytics</span>
+            <span class="text-on-surface-variant">SQL (PostgreSQL), Power BI, Tableau, Excel, DAX modeling</span>
+          </div>
+          <div class="p-3 bg-surface-container border border-outline-variant">
+            <span class="text-primary-fixed-dim font-bold block mb-1">Systems &amp; Hardware</span>
+            <span class="text-on-surface-variant">ESP8266 IoT, Blynk, Git, Linux, Docker, Tailwind CSS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. PROJECT DETAIL MODAL -->
+  <div class="fixed inset-0 z-[80] bg-surface-container-lowest/85 backdrop-blur-md hidden items-center justify-center p-4" id="project-detail-modal">
+    <div class="w-full max-w-3xl bg-surface-container-low border-2 border-primary neo-shadow-cyan p-6 relative font-body max-h-[85vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-outline-variant pb-3 mb-4">
+        <div>
+          <span class="font-code-block text-xs text-primary uppercase" id="proj-modal-tag">RESEARCH SPOTLIGHT // COMPUTER VISION</span>
+          <h3 class="font-headline text-xl text-on-surface font-bold mt-1" id="proj-modal-title">Vehicle Detection in Foggy Weather Using YOLOv11</h3>
+        </div>
+        <button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer" id="close-project-modal">
+          <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+      </div>
+      <div class="space-y-4 text-xs sm:text-sm text-on-surface-variant" id="proj-modal-body">
+        <p><strong class="text-on-surface">Problem Statement:</strong> <span id="proj-modal-problem">Heavy optical scattering caused by dense fog particles severely deteriorates standard convolutional edge features.</span></p>
+        <div class="p-3 bg-surface-container-lowest border border-outline-variant font-code-block text-xs">
+          <span class="text-primary font-bold">PIPELINE FLOW:</span> <span id="proj-modal-pipeline">Raw Input -> Dark Channel Prior Guided Dehazing -> CLAHE -> YOLOv11 SPPF -> NMS.</span>
+        </div>
+        <p><strong class="text-on-surface">Quantitative Validation:</strong> <span id="proj-modal-validation">Evaluated over 4,200 fog-compromised test frames. Attained an empirical mAP@50 of 0.83.</span></p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2" id="proj-modal-metrics"></div>
+      </div>
+      <div class="mt-6 pt-4 border-t border-outline-variant flex items-center justify-between font-code-block text-xs">
+        <a class="px-4 py-2 bg-primary text-[#003640] font-bold border border-primary flex items-center gap-1.5 hover:bg-primary-container transition-colors" href="https://github.com" target="_blank" rel="noreferrer">
+          <span>Open Repository</span>
+          <span class="material-symbols-outlined text-sm">open_in_new</span>
+        </a>
+        <span class="text-outline">PRUTHVI.DS ARCHIVE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. INTERACTIVE CYBER TERMINAL CLI MODAL -->
+  <div class="fixed inset-0 z-[80] bg-surface-container-lowest/85 backdrop-blur-md hidden items-center justify-center p-4" id="terminal-modal">
+    <div class="w-full max-w-2xl bg-surface-container-lowest border-2 border-primary neo-shadow-cyan font-code-block text-xs overflow-hidden flex flex-col h-[480px]">
+      <div class="bg-surface-container-low border-b border-outline-variant px-4 py-2.5 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-base">terminal</span>
+          <span class="font-bold text-on-surface">pruthvi.ds() Neural Terminal v2.4</span>
+        </div>
+        <button class="text-on-surface-variant hover:text-primary cursor-pointer" id="close-terminal-modal">
+          <span class="material-symbols-outlined text-lg">close</span>
+        </button>
+      </div>
+      <div class="flex-1 p-4 overflow-y-auto space-y-2 bg-surface-container-lowest" id="terminal-output">
+        <div class="text-on-surface-variant">pruthvi.ds() Neural Core v2.4 initialized.</div>
+        <div class="text-on-surface-variant">Type "help" to view available terminal commands.</div>
+      </div>
+      <form class="border-t border-outline-variant bg-surface-container-low p-3 flex items-center gap-2" id="terminal-form">
+        <span class="text-primary font-bold">λ pruthvi@portfolio:~$</span>
+        <input class="flex-1 bg-transparent border-none outline-none text-on-surface font-code-block text-xs" id="terminal-input" placeholder="type 'help', 'skills', 'projects', 'resume'..." type="text" autocomplete="off" />
+        <button class="text-primary hover:text-secondary cursor-pointer" type="submit">
+          <span class="material-symbols-outlined text-base">send</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Standalone Interactive Simulation Script -->
+  <script src="./script.js" type="module"></script>
+</body>
+</html>
